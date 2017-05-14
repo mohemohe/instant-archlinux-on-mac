@@ -26,7 +26,7 @@ echo "Mac Model: $MODEL"
 # To a URL so the user can change it to thier liking.
 ###############################################################################
 wget -O /root/initial_configuration.sh \
-  https://raw.githubusercontent.com/yantis/instant-archlinux-on-mac/master/initial_configuration.sh
+  https://raw.githubusercontent.com/shatteringlass/instant-archlinux-on-mac/master/initial_configuration.sh
 
 ###############################################################################
 # A lot of this complexity is because of the error:
@@ -188,7 +188,7 @@ echo "Installing cached general packages"
 ###############################################################################
 # chroot /arch pacman --noconfirm --needed -U /var/cache/pacman/general/package-quer*.pkg.tar.xz
 # chroot /arch pacman --noconfirm --needed -U /var/cache/pacman/general/package-quer*.pkg.tar.xz
-chroot /arch pacman --noconfirm --needed -U /var/cache/pacman/general/*.pkg.tar.xz
+# chroot /arch pacman --noconfirm --needed -U /var/cache/pacman/general/*.pkg.tar.xz
 
 ###############################################################################
 # update after pushing packages from docker container to get the system 
