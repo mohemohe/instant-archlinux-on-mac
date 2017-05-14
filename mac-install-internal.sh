@@ -198,6 +198,10 @@ echo "Installing cached general packages"
 echo "** Updating System **"
 chroot /arch pacman -Syyu --noconfirm
 
+## NOW INSTALL CACHED PACKAGES
+
+chroot /arch pacman --noconfirm --needed -U /var/cache/pacman/general/*.pkg.tar.xz
+chroot /arch pacman --noconfirm -Syyu linux linux-headers
 
 ###############################################################################
 # Setup Infinality Fonts
