@@ -1,12 +1,16 @@
-# Credits: https://gist.github.com/arlimus/5429535#file-pacman_aur-sh
+# Install from Antergos repo
 
-# short version, just copy-and-paste this line:
-pacman_aur(){ for pn in $*; do rm -rf /tmp/$pn; mkdir -p /tmp/$pn; pushd /tmp/$pn; wget https://aur.archlinux.org/packages/${pn:0:2}/$pn/PKGBUILD; makepkg; popd; done; sudo pacman -U $(for i in $*; do echo /tmp/$i/*.tar.xz; done;); }
+pacman -S wget
 
-# install yaourt on a fresh arch:
-# 1. get requirements
-pacman -S base-devel yajl sudo
-# 2. make sure your user is added to sudoers
-# as root: visudo
-# 3. install package-query and yaourt from aur
-pacman_aur package-query yaourt
+wget http://repo.antergos.com/antergos/x86_64/antergos-mirrorlist-20170527-2-any.pkg.tar.xz -O /tmp/antergos-mirrorlist-20170527-2-any.pkg.tar.xz
+pacman -U /tmp/antergos-keyring-20170524-1-any.pkg.tar.xz
+pacman-key --init archlinux antergos && sudo pacman-key --populate archlinux antergos
+
+cat <<EOS > /etc/pacman.conf
+[antergos]
+SigLevel = PackageRequired
+Usage = All
+Server = http://mirrors.antergos.com/$repo/$arc
+EOS
+
+pacman -S yajl yaourt
