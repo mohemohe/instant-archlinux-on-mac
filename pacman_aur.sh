@@ -10,7 +10,7 @@ cat > /etc/pacman.conf <<EOS
 [antergos]
 SigLevel = PackageRequired
 Usage = All
-Server = http://mirrors.antergos.com/$repo/$arc
+Server = http://repo.antergos.com/$repo/$arch
 EOS
 
 pacman -Syy yajl yaourt
