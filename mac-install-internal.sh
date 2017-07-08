@@ -786,6 +786,11 @@ chroot /arch runuser -l user -c "yaourt -Syy"
 ###############################################################################
 chroot /arch chown -R user:users /home/user/
 
+#-------------
+chroot /arch pacman -S grub
+chroot /arch grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug
+chroot /arch grub-mkconfig -o /boot/grub/grub.cfg 
+
 ###############################################################################
 # Fix for: https://bugs.archlinux.org/task/42798
 # Otherwise pacman can not look up the keys remotely.
