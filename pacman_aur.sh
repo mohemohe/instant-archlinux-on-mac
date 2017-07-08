@@ -13,4 +13,6 @@ Usage = All
 Server = http://mirrors.antergos.com/$repo/$arc
 EOS
 
+
+pacman -Syy
 pacman -S yajl yaourt
