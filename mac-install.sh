@@ -428,7 +428,7 @@ docker run \
   --rm \
   -ti \
   yantis/instant-archlinux-on-mac \
-  bash -c "run-remote-script https://raw.githubusercontent.com/shatteringlass/instant-archlinux-on-mac/master/mac-install-internal.sh"
+  bash -c "run-remote-script https://raw.githubusercontent.com/mohemohe/instant-archlinux-on-mac/master/mac-install-internal.sh"
 
 # Flag that we did or did not have a successful install
 SUCCESSFUL_INSTALL=$?
